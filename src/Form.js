@@ -47,7 +47,7 @@ const BoardingForm = ({ errors, touched, values, status }) => {
           Terms of Service
           <Field
             type="checkbox"
-            name="termsofservice"
+            name="tos"
             checked={values.tos}
           />
           <span className="checkmark" />
@@ -87,7 +87,9 @@ const onBoardingForm = withFormik({
   validationSchema: Yup.object().shape({
     name: Yup.string().required("You didnt complete the Form"),
     email: Yup.string().required(),
-    password: Yup.string()
+    password: Yup.string(),
+    tos: Yup.boolean().oneOf([true], "Must Accept Terms and Conditions")
+
     
   }),
 
